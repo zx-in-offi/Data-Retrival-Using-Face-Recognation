@@ -25,7 +25,7 @@ def save_face_crop(img_bgr, out_path):
     cv2.imwrite(str(out_path), img_bgr)
 
 def main():
-    images = [p for p in RAW_DIR.rglob("*") if p.siffix.lower() in {".jpg", ".jpeg", ".png"}]
+    images = [p for p in RAW_DIR.rglob("*") if p.suffix.lower() in {".jpg", ".jpeg", ".png"}]
     if not images:
         print("No images found in the raw directory. Add images then re-run")
         return
@@ -47,6 +47,17 @@ def main():
             #use first face (assuming single person per image)
             face_dict = faces[0]
             face_rgb = (face_dict["face"] * 255).astype("uint8")
-            
+            face_bgr = cv2.cvtColor(face_rgb, cv2.COLOR_RGB2BGR)
+
+            out_dir = PROC_DIR / roll
+            out_path = out_dir / f"{roll}_{idx}.jpg"
+            save_face_crop(face_bgr, out_path)
+            print(f"[OK] {img_path.name} -> {out_path}")
+        except Exception as e:
+            print(f"[ERR] {img_path.name}: {e}")
+
+if __name__ == "__main__":
+    main()
+
 
 
