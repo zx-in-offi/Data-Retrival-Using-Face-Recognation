@@ -8,7 +8,7 @@ DET_BACKEND = "retinaface"
 
 # Cosine similarity threshold (tune for your data)
 # With L2-normalized ArcFace, genuine pairs often > 0.45–0.7 in small datasets.
-SIM_THRESHOLD = 0.5
+SIM_THRESHOLD = 0.45
 
 def cosine_sim(a, B):
     # a: (D,), B: (N,D)
