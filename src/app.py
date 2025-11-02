@@ -1,3 +1,7 @@
+import os
+os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
+os.environ["OPENCV_VIDEOIO_PRIORITY_GSTREAMER"] = "0"
+
 import streamlit as st
 import numpy as np
 import pandas as pd
