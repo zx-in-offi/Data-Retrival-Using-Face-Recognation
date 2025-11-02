@@ -1,6 +1,6 @@
 import os
-os.environ["OPENCV_VIDEOIO_PRIORITY_MSMF"] = "0"
-os.environ["OPENCV_VIDEOIO_PRIORITY_GSTREAMER"] = "0"
+os.system("pip uninstall -y opencv-python opencv-contrib-python || true")
+
 
 import streamlit as st
 import numpy as np
