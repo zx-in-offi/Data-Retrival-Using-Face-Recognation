@@ -1,5 +1,5 @@
 import os
-os.system("pip uninstall -y opencv-python opencv-contrib-python || true")
+# os.system("pip uninstall -y opencv-python opencv-contrib-python || true")
 
 
 import streamlit as st
